@@ -2,9 +2,9 @@ package com.Job.JobApplication.job;
 
 import java.util.List;
 
-public interface JobService {
+public interface CustomerService {
     List<Job> findAll();
-    void createJob(Job job);
+    void createCustomer(Job job);
 
     Job findByID(Long Id);
 

@@ -1,20 +1,22 @@
 package com.Job.JobApplication.job;
 
+import java.util.Date;
+
 public class Job {
     private Long id;
-    private String title;
-    private String description;
-    private String minSalary;
-    private String maxSalary;
-    private String location;
+    private String name;
+    private String housename;
+    private long phoneno;
+    private int addressid;
+    private Date lastOrderDate;
 
-    public Job(Long id, String title, String description, String minSalary, String maxSalary, String location) {
+    public Job(Long id, String name, String housename, long phoneno, int addressid, Date lastOrderDate) {
         this.id = id;
-        this.title = title;
-        this.description = description;
-        this.minSalary = minSalary;
-        this.maxSalary = maxSalary;
-        this.location = location;
+        this.name = name;
+        this.housename = housename;
+        this.phoneno = phoneno;
+        this.addressid = addressid;
+        this.lastOrderDate = lastOrderDate;
     }
 
     public Long getId() {
@@ -25,43 +27,43 @@ public class Job {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getHousename() {
+        return housename;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setHousename(String housename) {
+        this.housename = housename;
     }
 
-    public String getMinSalary() {
-        return minSalary;
+    public long getPhoneno() {
+        return phoneno;
     }
 
-    public void setMinSalary(String minSalary) {
-        this.minSalary = minSalary;
+    public void setPhoneno(long phoneno) {
+        this.phoneno = phoneno;
     }
 
-    public String getMaxSalary() {
-        return maxSalary;
+    public int getAddressid() {
+        return addressid;
     }
 
-    public void setMaxSalary(String maxSalary) {
-        this.maxSalary = maxSalary;
+    public void setAddressid(int addressid) {
+        this.addressid = addressid;
     }
 
-    public String getLocation() {
-        return location;
+    public Date getLastOrderDate() {
+        return lastOrderDate;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setLastOrderDate(Date lastOrderDate) {
+        this.lastOrderDate = lastOrderDate;
     }
 }

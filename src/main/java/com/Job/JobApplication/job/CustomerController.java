@@ -2,40 +2,38 @@ package com.Job.JobApplication.job;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-public class JobController {
-private JobService jobService;
+public class CustomerController {
+private final CustomerService customerService;
 private Long nextId= 1L;
-    public JobController(JobService jobService) {
-        this.jobService = jobService;
+    public CustomerController(CustomerService customerService) {
+        this.customerService = customerService;
     }
 
-    @GetMapping("/jobs")
+    @GetMapping("/customers")
     public ResponseEntity<List<Job>> findAll(){
-        return ResponseEntity.ok(jobService.findAll());
+        return ResponseEntity.ok(customerService.findAll());
     }
 
-    @PostMapping("/jobs")
+    @PostMapping("/customer")
     public ResponseEntity<String> createJob(@RequestBody Job job){
             job.setId(nextId++);
-        jobService.createJob(job);
+        customerService.createCustomer(job);
         return new ResponseEntity<>("Job added successfully",HttpStatus.CREATED);
     }
 
-    @GetMapping("/jobs/{Id}")
+    @GetMapping("/customer/{Id}")
     public ResponseEntity<Job> findJobByID(@PathVariable Long Id){
-        return jobService.findByID(Id)!=null ? new ResponseEntity<>(jobService.findByID(Id),HttpStatus.OK): new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return customerService.findByID(Id)!=null ? new ResponseEntity<>(customerService.findByID(Id),HttpStatus.OK): new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @DeleteMapping("/deljob/{Id}")
+    @DeleteMapping("/delcust/{Id}")
     public ResponseEntity<String> deleteJob(@PathVariable Long Id){
-        jobService.deleteById(Id);
+        customerService.deleteById(Id);
         return ResponseEntity.ok("Deleted!");
     }
 }
