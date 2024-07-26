@@ -1,4 +1,4 @@
-package com.Job.JobApplication.job;
+package com.mymenu.mymenuApplication.job;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,19 +15,19 @@ private Long nextId= 1L;
     }
 
     @GetMapping("/customers")
-    public ResponseEntity<List<Job>> findAll(){
+    public ResponseEntity<List<Customer>> findAll(){
         return ResponseEntity.ok(customerService.findAll());
     }
 
     @PostMapping("/customer")
-    public ResponseEntity<String> createJob(@RequestBody Job job){
-            job.setId(nextId++);
-        customerService.createCustomer(job);
-        return new ResponseEntity<>("Job added successfully",HttpStatus.CREATED);
+    public ResponseEntity<String> createJob(@RequestBody Customer customer){
+            customer.setId(nextId++);
+        customerService.createCustomer(customer);
+        return new ResponseEntity<>("Customer added successfully",HttpStatus.CREATED);
     }
 
     @GetMapping("/customer/{Id}")
-    public ResponseEntity<Job> findJobByID(@PathVariable Long Id){
+    public ResponseEntity<Customer> findJobByID(@PathVariable Long Id){
         return customerService.findByID(Id)!=null ? new ResponseEntity<>(customerService.findByID(Id),HttpStatus.OK): new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 

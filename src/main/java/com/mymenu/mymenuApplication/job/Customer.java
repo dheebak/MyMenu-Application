@@ -1,8 +1,8 @@
-package com.Job.JobApplication.job;
+package com.mymenu.mymenuApplication.job;
 
 import java.util.Date;
 
-public class Job {
+public class Customer {
     private Long id;
     private String name;
     private String housename;
@@ -10,7 +10,7 @@ public class Job {
     private int addressid;
     private Date lastOrderDate;
 
-    public Job(Long id, String name, String housename, long phoneno, int addressid, Date lastOrderDate) {
+    public Customer(Long id, String name, String housename, long phoneno, int addressid, Date lastOrderDate) {
         this.id = id;
         this.name = name;
         this.housename = housename;
