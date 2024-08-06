@@ -1,4 +1,4 @@
-package com.mymenu.mymenuApplication.job;
+package com.mymenu.mymenuApplication.customer;
 
 import java.util.List;
 
@@ -9,4 +9,6 @@ public interface CustomerService {
     Customer findByID(Long Id);
 
     void deleteById(Long Id);
+
+    boolean updateCustomer(Long id, Customer customer);
 }

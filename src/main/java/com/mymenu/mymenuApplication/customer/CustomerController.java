@@ -1,4 +1,4 @@
-package com.mymenu.mymenuApplication.job;
+package com.mymenu.mymenuApplication.customer;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,13 +27,22 @@ private Long nextId= 1L;
     }
 
     @GetMapping("/customer/{Id}")
-    public ResponseEntity<Customer> findJobByID(@PathVariable Long Id){
-        return customerService.findByID(Id)!=null ? new ResponseEntity<>(customerService.findByID(Id),HttpStatus.OK): new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<Customer> findJobByID(@PathVariable Long id){
+        return customerService.findByID(id)!=null ?
+                new ResponseEntity<>(customerService.findByID(id),HttpStatus.OK) :
+                new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @DeleteMapping("/delcust/{Id}")
-    public ResponseEntity<String> deleteJob(@PathVariable Long Id){
-        customerService.deleteById(Id);
+    @DeleteMapping("/delcust/{id}")
+    public ResponseEntity<String> deleteJob(@PathVariable Long id){
+        customerService.deleteById(id);
         return ResponseEntity.ok("Deleted!");
+    }
+
+    @PutMapping("/updatecust/{id}")
+    public ResponseEntity<String> updateJob(@PathVariable Long id,@RequestBody Customer customer){
+        boolean updated = customerService.updateCustomer(id,customer);
+        return updated ? new ResponseEntity<>("Updated!",HttpStatus.OK) :
+                new ResponseEntity<>("Not Found",HttpStatus.NOT_FOUND);
     }
 }

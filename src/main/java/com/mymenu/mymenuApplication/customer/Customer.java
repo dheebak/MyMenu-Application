@@ -1,4 +1,4 @@
-package com.mymenu.mymenuApplication.job;
+package com.mymenu.mymenuApplication.customer;
 
 import java.util.Date;
 
@@ -65,5 +65,17 @@ public class Customer {
 
     public void setLastOrderDate(Date lastOrderDate) {
         this.lastOrderDate = lastOrderDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", housename='" + housename + '\'' +
+                ", phoneno=" + phoneno +
+                ", addressid=" + addressid +
+                ", lastOrderDate=" + lastOrderDate +
+                '}';
     }
 }
