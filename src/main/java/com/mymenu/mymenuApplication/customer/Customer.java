@@ -1,14 +1,23 @@
 package com.mymenu.mymenuApplication.customer;
 
-import java.util.Date;
+import jakarta.persistence.*;
 
+import java.util.Date;
+@Entity
+@Table(name = "Customer")
 public class Customer {
+    @Id
+    //autoincrement id starting from 1
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String housename;
     private long phoneno;
     private int addressid;
     private Date lastOrderDate;
+
+    public Customer() {
+    }
 
     public Customer(Long id, String name, String housename, long phoneno, int addressid, Date lastOrderDate) {
         this.id = id;
